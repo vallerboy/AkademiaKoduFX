@@ -15,17 +15,7 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Button fx:id="startButton" layoutX="491.0" layoutY="24.0" mnemonicParsing="false" onMouseClicked="#buttonStartClicked" prefHeight="26.0" prefWidth="81.0" style="-fx-background-color: black;" text="Otwórz" textAlignment="CENTER" textFill="#d30909" textOverrun="WORD_ELLIPSIS" wrapText="true">
-         <font>
-            <Font name="Bauhaus 93" size="16.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <effect>
-            <ColorAdjust brightness="0.49" contrast="0.38" />
-         </effect>
-      </Button>
       <JFXDrawer fx:id="fxDrawer" defaultDrawerSize="150.0" prefHeight="400.0" prefWidth="150.0" />
+      <JFXHamburger fx:id="buttonStart" layoutX="541.0" layoutY="24.0" />
    </children>
 </AnchorPane>

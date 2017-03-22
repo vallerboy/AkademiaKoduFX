@@ -1,6 +1,8 @@
 package sample;
 
 import com.jfoenix.controls.JFXDrawer;
+import com.jfoenix.controls.JFXHamburger;
+import com.jfoenix.transitions.hamburger.HamburgerNextArrowBasicTransition;
 import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -33,6 +35,9 @@ public class Controller implements Initializable{
 
     @FXML
     public  AnchorPane anchorPane;
+
+    @FXML
+    public JFXHamburger buttonStart;
 
     private static AnchorPane anchorPaneStatic;
 
@@ -116,5 +121,22 @@ public class Controller implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+       HamburgerNextArrowBasicTransition transition = new HamburgerNextArrowBasicTransition(buttonStart);
+        transition.setRate(-1);
+        buttonStart.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                transition.setRate(transition.getRate() * -1);
+                transition.play();
+
+                if(fxDrawer.isShown()) {
+                    fxDrawer.close();
+                }else{
+                    fxDrawer.open();
+                }
+            }
+        });
+
     }
 }
