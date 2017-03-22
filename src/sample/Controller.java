@@ -13,6 +13,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
@@ -30,7 +31,10 @@ public class Controller implements Initializable{
     @FXML
     public JFXDrawer fxDrawer;
 
+    @FXML
+    public  AnchorPane anchorPane;
 
+    private static AnchorPane anchorPaneStatic;
 
     public void buttonStartClicked(MouseEvent event) {
       // if(event.isControlDown()){
@@ -39,8 +43,13 @@ public class Controller implements Initializable{
            }else{
                fxDrawer.open();
            }
+
      // }
     }
+
+    public static AnchorPane getPane() {
+       return  anchorPaneStatic;
+   }
 
     private  void openWindow() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -98,6 +107,9 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        anchorPaneStatic = anchorPane;
+
         try {
             VBox box = FXMLLoader.load(getClass().getResource("drawerContent.fxml"));
             fxDrawer.setSidePane(box);
